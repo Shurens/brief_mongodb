@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <head>
+        <title>Recherche de Publications</title>
+    </head>
+    <body>
+        <h1>Recherche de Publications par Auteur</h1>
+    <form method="GET" action="/search">
+        <label for="author">Auteur :</label>
+        <select name="author" id="author" required>
+            <option value="" disabled selected>Sélectionnez un auteur</option>
+            {% for author in authors %}
+                <option value="{{ author }}">{{ author }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Rechercher">
+    </form>
+    <h1>Recherche de Publications par Date</h1>
+    <form method="GET" action="/date">
+        <label for="date">Date de publication :</label>
+        <input type="text" name="date" id="date" placeholder="Ex. 2014" required>
+        <input type="submit" value="Rechercher">
+    </form>
+    <h1>Ajouter une publication</h1>
+    <form method="POST" action="/add_publication">
+        <label for="title">Titre :</label>
+        <input type="text" name="title" required>
+    
+        <label for="author">Auteur :</label>
+        <select name="author" required>
+            {% for author in authors %}
+                <option value="{{ author }}">{{ author }}</option>
+            {% endfor %}
+        </select>
+    
+        <label for="year">Année :</label>
+        <input type="number" name="year" required>
+    
+        <input type="submit" value="Ajouter la publication">
+    </form>
+    
+</body>
+</html>

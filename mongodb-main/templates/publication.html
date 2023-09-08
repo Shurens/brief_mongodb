@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Résultats de la Recherche</title>
+</head>
+<body>
+    <h1>Résultats de la Recherche</h1>
+    <p>Résultats pour l'auteur : {{ publications.authors }}</p>
+    
+    <ul>
+        {% for publication in publications %}
+            <li>{{ publication.title }} - {{ publication.year }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
